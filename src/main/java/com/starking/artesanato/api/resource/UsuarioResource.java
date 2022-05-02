@@ -18,7 +18,7 @@ import com.starking.artesanato.exception.ErroAutenticacao;
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Usuario;
 import com.starking.artesanato.service.JwtService;
-import com.starking.artesanato.service.LancamentoService;
+import com.starking.artesanato.service.PecaService;
 import com.starking.artesanato.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ import lombok.RequiredArgsConstructor;
 public class UsuarioResource {
 
 	private final UsuarioService service;
-	private final LancamentoService lancamentoService;
+	private final PecaService pecaService;
 	private final JwtService jwtService;
 	
 	@PostMapping("/autenticar")
@@ -71,7 +71,7 @@ public class UsuarioResource {
 			return new ResponseEntity( HttpStatus.NOT_FOUND );
 		}
 		
-		BigDecimal saldo = lancamentoService.obterSaldoPorUsuario(id);
+		BigDecimal saldo = pecaService.obterSaldoPorUsuario(id);
 		return ResponseEntity.ok(saldo);
 	}
 

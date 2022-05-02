@@ -24,7 +24,7 @@ import com.starking.artesanato.api.resource.UsuarioResource;
 import com.starking.artesanato.exception.ErroAutenticacao;
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Usuario;
-import com.starking.artesanato.service.LancamentoService;
+import com.starking.artesanato.service.PecaService;
 import com.starking.artesanato.service.UsuarioService;
 
 @ExtendWith(SpringExtension.class)
@@ -43,7 +43,7 @@ public class UsuarioResourceTest {
 	UsuarioService service;
 	
 	@MockBean
-	LancamentoService lancamentoService;
+	PecaService pecaService;
 	
 	@Test
 	public void deveAutenticarUmUsuario() throws Exception {
@@ -168,7 +168,7 @@ public class UsuarioResourceTest {
 		BigDecimal saldo = BigDecimal.valueOf(10);
 		Usuario usuario = Usuario.builder().id(1l).email("usuario@email.com").senha( "123").build();
 		Mockito.when(service.obterPorId(1l)).thenReturn(Optional.of(usuario));
-		Mockito.when(lancamentoService.obterSaldoPorUsuario(1l)).thenReturn(saldo);
+		Mockito.when(pecaService.obterSaldoPorUsuario(1l)).thenReturn(saldo);
 		
 		
 		//execucao e verificacao

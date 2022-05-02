@@ -19,23 +19,22 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.enums.StatusLancamento;
 import com.starking.artesanato.model.enums.TipoLancamento;
-import com.starking.artesanato.model.repository.LancamentoRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @ActiveProfiles("test")
-public class LancamentoRepositoryTest {
+public class PecasRepositoryTest {
 
 	@Autowired
-	LancamentoRepository repository;
+	PecasRepository repository;
 	
 	@Autowired
 	TestEntityManager entityManager;
 	
 	@Test
-	public void deveSalvarUmLancamento() {
-		Pecas pecas = criarLancamento();
+	public void deveSalvarUmaPeca() {
+		Pecas pecas = criarPecas();
 		
 		pecas = repository.save(pecas);
 		
@@ -44,20 +43,20 @@ public class LancamentoRepositoryTest {
 
 	@Test
 	public void deveDeletarUmLancamento() {
-		Pecas pecas = criarEPersistirUmLancamento();
+		Pecas pecas = criarEPersistirUmaPeca();
 		
 		pecas = entityManager.find(Pecas.class, pecas.getId());
 		
 		repository.delete(pecas);
 		
-		Pecas lancamentoInexistente = entityManager.find(Pecas.class, pecas.getId());
-		assertThat(lancamentoInexistente).isNull();
+		Pecas pecaInexistente = entityManager.find(Pecas.class, pecas.getId());
+		assertThat(pecaInexistente).isNull();
 	}
 
 	
 	@Test
-	public void deveAtualizarUmLancamento() {
-		Pecas pecas = criarEPersistirUmLancamento();
+	public void deveAtualizarUmaPeca() {
+		Pecas pecas = criarEPersistirUmaPeca();
 		
 		pecas.setAno(2018);
 		pecas.setDescricao("Teste Atualizar");
@@ -65,35 +64,35 @@ public class LancamentoRepositoryTest {
 		
 		repository.save(pecas);
 		
-		Pecas lancamentoAtualizado = entityManager.find(Pecas.class, pecas.getId());
+		Pecas pecaAtualizado = entityManager.find(Pecas.class, pecas.getId());
 		
-		assertThat(lancamentoAtualizado.getAno()).isEqualTo(2018);
-		assertThat(lancamentoAtualizado.getDescricao()).isEqualTo("Teste Atualizar");
-		assertThat(lancamentoAtualizado.getStatus()).isEqualTo(StatusLancamento.CANCELADO);
+		assertThat(pecaAtualizado.getAno()).isEqualTo(2018);
+		assertThat(pecaAtualizado.getDescricao()).isEqualTo("Teste Atualizar");
+		assertThat(pecaAtualizado.getStatus()).isEqualTo(StatusLancamento.CANCELADO);
 	}
 	
 	@Test
-	public void deveBuscarUmLancamentoPorId() {
-		Pecas pecas = criarEPersistirUmLancamento();
+	public void deveBuscarUmaPecaPorId() {
+		Pecas pecas = criarEPersistirUmaPeca();
 		
-		Optional<Pecas> lancamentoEncontrado = repository.findById(pecas.getId());
+		Optional<Pecas> pecaEncontrado = repository.findById(pecas.getId());
 		
-		assertThat(lancamentoEncontrado.isPresent()).isTrue();
+		assertThat(pecaEncontrado.isPresent()).isTrue();
 	}
 
-	private Pecas criarEPersistirUmLancamento() {
-		Pecas pecas = criarLancamento();
+	private Pecas criarEPersistirUmaPeca() {
+		Pecas pecas = criarPecas();
 		entityManager.persist(pecas);
 		return pecas;
 	}
 	
-	public static Pecas criarLancamento() {
+	public static Pecas criarPecas() {
 		return Pecas.builder()
 									.ano(2019)
 									.mes(1)
-									.descricao("lancamento qualquer")
+									.descricao("Peças qualquer")
 									.valor(BigDecimal.valueOf(10))
-									.tipo(TipoLancamento.RECEITA)
+									.tipo(TipoLancamento.CREDITO)
 									.status(StatusLancamento.PENDENTE)
 									.dataCadastro(LocalDate.now())
 									.build();

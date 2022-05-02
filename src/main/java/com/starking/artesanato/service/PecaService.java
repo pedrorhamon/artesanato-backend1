@@ -7,7 +7,7 @@ import java.util.Optional;
 import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.enums.StatusLancamento;
 
-public interface LancamentoService {
+public interface PecaService {
 
 	Pecas salvar(Pecas pecas);
 	
@@ -15,7 +15,7 @@ public interface LancamentoService {
 	
 	void deletar(Pecas pecas);
 	
-	List<Pecas> buscar( Pecas lancamentoFiltro );
+	List<Pecas> buscar( Pecas pecasFiltro );
 	
 	void atualizarStatus(Pecas pecas, StatusLancamento status);
 	

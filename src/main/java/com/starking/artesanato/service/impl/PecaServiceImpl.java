@@ -15,15 +15,15 @@ import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.enums.StatusLancamento;
 import com.starking.artesanato.model.enums.TipoLancamento;
-import com.starking.artesanato.model.repository.LancamentoRepository;
-import com.starking.artesanato.service.LancamentoService;
+import com.starking.artesanato.model.repository.PecasRepository;
+import com.starking.artesanato.service.PecaService;
 
 @Service
-public class LancamentoServiceImpl implements LancamentoService {
+public class PecaServiceImpl implements PecaService {
 	
-	private LancamentoRepository repository;
+	private PecasRepository repository;
 	
-	public LancamentoServiceImpl(LancamentoRepository repository) {
+	public PecaServiceImpl(PecasRepository repository) {
 		this.repository = repository;
 	}
 
@@ -104,8 +104,8 @@ public class LancamentoServiceImpl implements LancamentoService {
 	@Transactional(readOnly = true)
 	public BigDecimal obterSaldoPorUsuario(Long id) {
 		
-		BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO);
-		BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO);
+		BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO);
+		BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.PIX, StatusLancamento.EFETIVADO);
 		
 		if(receitas == null) {
 			receitas = BigDecimal.ZERO;

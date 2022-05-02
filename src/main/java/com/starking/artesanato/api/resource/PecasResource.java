@@ -14,7 +14,7 @@ import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.entity.Usuario;
 import com.starking.artesanato.model.enums.StatusLancamento;
 import com.starking.artesanato.model.enums.TipoLancamento;
-import com.starking.artesanato.service.LancamentoService;
+import com.starking.artesanato.service.PecaService;
 import com.starking.artesanato.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,53 +24,53 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PecasResource {
 
-	private final LancamentoService service;
+	private final PecaService service;
 	private final UsuarioService usuarioService;
 	
 	@GetMapping
-	public ResponseEntity buscar(
+	public ResponseEntity<?> buscar(
 			@RequestParam(value ="descricao" , required = false) String descricao,
 			@RequestParam(value = "mes", required = false) Integer mes,
 			@RequestParam(value = "ano", required = false) Integer ano,
 			@RequestParam("usuario") Long idUsuario
 			) {
 		
-		Pecas lancamentoFiltro = new Pecas();
-		lancamentoFiltro.setDescricao(descricao);
-		lancamentoFiltro.setMes(mes);
-		lancamentoFiltro.setAno(ano);
+		Pecas pecasFiltro = new Pecas();
+		pecasFiltro.setDescricao(descricao);
+		pecasFiltro.setMes(mes);
+		pecasFiltro.setAno(ano);
 		
 		Optional<Usuario> usuario = usuarioService.obterPorId(idUsuario);
 		if(!usuario.isPresent()) {
 			return ResponseEntity.badRequest().body("Não foi possível realizar a consulta. Usuário não encontrado para o Id informado.");
 		}else {
-			lancamentoFiltro.setUsuario(usuario.get());
+			pecasFiltro.setUsuario(usuario.get());
 		}
 		
-		List<Pecas> pecas = service.buscar(lancamentoFiltro);
+		List<Pecas> pecas = service.buscar(pecasFiltro);
 		return ResponseEntity.ok(pecas);
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity obterLancamento( @PathVariable("id") Long id ) {
+	public ResponseEntity<?> obterLancamento( @PathVariable("id") Long id ) {
 		return service.obterPorId(id)
-					.map( lancamento -> new ResponseEntity(converter(lancamento), HttpStatus.OK) )
-					.orElseGet( () -> new ResponseEntity(HttpStatus.NOT_FOUND) );
+					.map( pecas -> new ResponseEntity<>(converter(pecas), HttpStatus.OK) )
+					.orElseGet( () -> new ResponseEntity<>(HttpStatus.NOT_FOUND) );
 	}
 
 	@PostMapping
-	public ResponseEntity salvar( @RequestBody PecasDTO dto ) {
+	public ResponseEntity<?> salvar( @RequestBody PecasDTO dto ) {
 		try {
 			Pecas entidade = converter(dto);
 			entidade = service.salvar(entidade);
-			return new ResponseEntity(entidade, HttpStatus.CREATED);
+			return new ResponseEntity<>(entidade, HttpStatus.CREATED);
 		}catch (RegraNegocioException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
 	
 	@PutMapping("{id}")
-	public ResponseEntity atualizar( @PathVariable("id") Long id, @RequestBody PecasDTO dto ) {
+	public ResponseEntity<?> atualizar( @PathVariable("id") Long id, @RequestBody PecasDTO dto ) {
 		return service.obterPorId(id).map( entity -> {
 			try {
 				Pecas pecas = converter(dto);
@@ -81,11 +81,11 @@ public class PecasResource {
 				return ResponseEntity.badRequest().body(e.getMessage());
 			}
 		}).orElseGet( () ->
-			new ResponseEntity("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+			new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
 	}
 	
 	@PutMapping("{id}/atualiza-status")
-	public ResponseEntity atualizarStatus( @PathVariable("id") Long id , @RequestBody AtualizaStatusDTO dto ) {
+	public ResponseEntity<?> atualizarStatus( @PathVariable("id") Long id , @RequestBody AtualizaStatusDTO dto ) {
 		return service.obterPorId(id).map( entity -> {
 			StatusLancamento statusSelecionado = StatusLancamento.valueOf(dto.getStatus());
 			
@@ -102,16 +102,16 @@ public class PecasResource {
 			}
 		
 		}).orElseGet( () ->
-		new ResponseEntity("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+		new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
 	}
 	
 	@DeleteMapping("{id}")
-	public ResponseEntity deletar( @PathVariable("id") Long id ) {
+	public ResponseEntity<?> deletar( @PathVariable("id") Long id ) {
 		return service.obterPorId(id).map( entidade -> {
 			service.deletar(entidade);
-			return new ResponseEntity( HttpStatus.NO_CONTENT );
+			return new ResponseEntity<>( HttpStatus.NO_CONTENT );
 		}).orElseGet( () -> 
-			new ResponseEntity("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+			new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
 	}
 	
 	private PecasDTO converter(Pecas pecas) {

@@ -31,72 +31,72 @@ import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.entity.Usuario;
 import com.starking.artesanato.model.enums.StatusLancamento;
 import com.starking.artesanato.model.enums.TipoLancamento;
-import com.starking.artesanato.model.repository.LancamentoRepository;
-import com.starking.artesanato.model.repository.LancamentoRepositoryTest;
-import com.starking.artesanato.service.impl.LancamentoServiceImpl;
+import com.starking.artesanato.model.repository.PecasRepository;
+import com.starking.artesanato.model.repository.PecasRepositoryTest;
+import com.starking.artesanato.service.impl.PecaServiceImpl;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
-public class LancamentoServiceTest {
+public class PecasServiceTest {
 
 	@SpyBean
-	LancamentoServiceImpl service;
+	PecaServiceImpl service;
 	@MockBean
-	LancamentoRepository repository;
+	PecasRepository repository;
 	
 	@Test
-	public void deveSalvarUmLancamento() {
+	public void deveSalvarUmaPeca() {
 		//cenário
-		Pecas lancamentoASalvar = LancamentoRepositoryTest.criarLancamento();
-		doNothing().when(service).validar(lancamentoASalvar);
+		Pecas pecaSalvar = PecasRepositoryTest.criarPecas();
+		doNothing().when(service).validar(pecaSalvar);
 		
-		Pecas lancamentoSalvo = LancamentoRepositoryTest.criarLancamento();
-		lancamentoSalvo.setId(1l);
-		lancamentoSalvo.setStatus(StatusLancamento.PENDENTE);
-		when(repository.save(lancamentoASalvar)).thenReturn(lancamentoSalvo);
+		Pecas pecaSalvo = PecasRepositoryTest.criarPecas();
+		pecaSalvo.setId(1l);
+		pecaSalvo.setStatus(StatusLancamento.PENDENTE);
+		when(repository.save(pecaSalvar)).thenReturn(pecaSalvo);
 		
 		//execucao
-		Pecas pecas = service.salvar(lancamentoASalvar);
+		Pecas pecas = service.salvar(pecaSalvar);
 		
 		//verificação
-		assertThat( pecas.getId() ).isEqualTo(lancamentoSalvo.getId());
+		assertThat( pecas.getId() ).isEqualTo(pecaSalvo.getId());
 		assertThat(pecas.getStatus()).isEqualTo(StatusLancamento.PENDENTE);
 	}
 	
 	@Test
-	public void naoDeveSalvarUmLancamentoQuandoHouverErroDeValidacao() {
+	public void naoDeveSalvarUmaPecaQuandoHouverErroDeValidacao() {
 		//cenário
-		Pecas lancamentoASalvar = LancamentoRepositoryTest.criarLancamento();
-		doThrow( RegraNegocioException.class ).when(service).validar(lancamentoASalvar);
+		Pecas pecaSalvar = PecasRepositoryTest.criarPecas();
+		doThrow( RegraNegocioException.class ).when(service).validar(pecaSalvar);
 		
 		//execucao e verificacao
-		catchThrowableOfType( () -> service.salvar(lancamentoASalvar), RegraNegocioException.class );
-		verify(repository, never()).save(lancamentoASalvar);
+		catchThrowableOfType( () -> service.salvar(pecaSalvar), RegraNegocioException.class );
+		verify(repository, never()).save(pecaSalvar);
 	}
 	
 	@Test
-	public void deveAtualizarUmLancamento() {
+	public void deveAtualizarUmPeca() {
 		//cenário
-		Pecas lancamentoSalvo = LancamentoRepositoryTest.criarLancamento();
-		lancamentoSalvo.setId(1l);
-		lancamentoSalvo.setStatus(StatusLancamento.PENDENTE);
+		Pecas pecaSalvo = PecasRepositoryTest.criarPecas();
+		pecaSalvo.setId(1l);
+		pecaSalvo.setStatus(StatusLancamento.PENDENTE);
 
-		doNothing().when(service).validar(lancamentoSalvo);
+		doNothing().when(service).validar(pecaSalvo);
 		
-		when(repository.save(lancamentoSalvo)).thenReturn(lancamentoSalvo);
+		when(repository.save(pecaSalvo)).thenReturn(pecaSalvo);
 		
 		//execucao
-		service.atualizar(lancamentoSalvo);
+		service.atualizar(pecaSalvo);
 		
 		//verificação
-		verify(repository, times(1)).save(lancamentoSalvo);
+		verify(repository, times(1)).save(pecaSalvo);
 		
 	}
 	
 	@Test
-	public void deveLancarErroAoTentarAtualizarUmLancamentoQueAindaNaoFoiSalvo() {
+	public void deveLancarErroAoTentarAtualizarUmaPecaQueAindaNaoFoiSalvo() {
 		//cenário
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		
 		//execucao e verificacao
 		catchThrowableOfType( () -> service.atualizar(pecas), NullPointerException.class );
@@ -104,9 +104,9 @@ public class LancamentoServiceTest {
 	}
 	
 	@Test
-	public void deveDeletarUmLancamento() {
+	public void deveDeletarUmPeca() {
 		//cenário
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(1l);
 		
 		//execucao
@@ -117,10 +117,10 @@ public class LancamentoServiceTest {
 	}
 	
 	@Test
-	public void deveLancarErroAoTentarDeletarUmLancamentoQueAindaNaoFoiSalvo() {
+	public void deveLancarErroAoTentarDeletarUmaPecaQueAindaNaoFoiSalvo() {
 		
 		//cenário
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		
 		//execucao
 		catchThrowableOfType( () -> service.deletar(pecas), NullPointerException.class );
@@ -131,9 +131,9 @@ public class LancamentoServiceTest {
 	
 	
 	@Test
-	public void deveFiltrarLancamentos() {
+	public void deveFiltrarPecas() {
 		//cenário
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(1l);
 		
 		List<Pecas> lista = Arrays.asList(pecas);
@@ -153,7 +153,7 @@ public class LancamentoServiceTest {
 	@Test
 	public void deveAtualizarOStatusDeUmLancamento() {
 		//cenário
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(1l);
 		pecas.setStatus(StatusLancamento.PENDENTE);
 		
@@ -174,7 +174,7 @@ public class LancamentoServiceTest {
 		//cenário
 		Long id = 1l;
 		
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(id);
 		
 		when(repository.findById(id)).thenReturn(Optional.of(pecas));
@@ -191,7 +191,7 @@ public class LancamentoServiceTest {
 		//cenário
 		Long id = 1l;
 		
-		Pecas pecas = LancamentoRepositoryTest.criarLancamento();
+		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(id);
 		
 		when( repository.findById(id) ).thenReturn( Optional.empty() );
@@ -273,11 +273,11 @@ public class LancamentoServiceTest {
 		Long idUsuario = 1l;
 		
 		when( repository
-				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO)) 
+				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO)) 
 				.thenReturn(BigDecimal.valueOf(100));
 		
 		when( repository
-				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO)) 
+				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.PIX, StatusLancamento.EFETIVADO)) 
 				.thenReturn(BigDecimal.valueOf(50));
 		
 		//execucao
