@@ -29,7 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Usuario autenticar(String email, String senha) {
-		Optional<Usuario> usuario = repository.findByEmail(email);
+		Optional<Usuario> usuario = this.repository.findByEmail(email);
 		
 		if(!usuario.isPresent()) {
 			throw new ErroAutenticacao(ConstantesUtils.USUARIO_NAO_ENCONTRADO);
@@ -62,7 +62,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public void validarEmail(String email) {
-		boolean existe = repository.existsByEmail(email);
+		boolean existe = this.repository.existsByEmail(email);
 		if(existe) {
 			throw new RegraNegocioException(ConstantesUtils.USUARIO_CADASTRADO);
 		}
@@ -70,7 +70,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public Optional<Usuario> obterPorId(Long id) {
-		return repository.findById(id);
+		return this.repository.findById(id);
 	}
 
 }

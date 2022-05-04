@@ -17,6 +17,7 @@ import com.starking.artesanato.model.enums.StatusLancamento;
 import com.starking.artesanato.model.enums.TipoLancamento;
 import com.starking.artesanato.model.repository.PecasRepository;
 import com.starking.artesanato.service.PecaService;
+import com.starking.artesanato.utils.ConstantesUtils;
 
 @Service
 public class PecaServiceImpl implements PecaService {
@@ -32,7 +33,7 @@ public class PecaServiceImpl implements PecaService {
 	public Pecas salvar(Pecas pecas) {
 		validar(pecas);
 		pecas.setStatus(StatusLancamento.PENDENTE);
-		return repository.save(pecas);
+		return this.repository.save(pecas);
 	}
 
 	@Override
@@ -40,14 +41,14 @@ public class PecaServiceImpl implements PecaService {
 	public Pecas atualizar(Pecas pecas) {
 		Objects.requireNonNull(pecas.getId());
 		validar(pecas);
-		return repository.save(pecas);
+		return this.repository.save(pecas);
 	}
 
 	@Override
 	@Transactional
 	public void deletar(Pecas pecas) {
 		Objects.requireNonNull(pecas.getId());
-		repository.delete(pecas);
+		this.repository.delete(pecas);
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class PecaServiceImpl implements PecaService {
 					.withIgnoreCase()
 					.withStringMatcher(StringMatcher.CONTAINING) );
 		
-		return repository.findAll(example);
+		return this.repository.findAll(example);
 	}
 
 	@Override
@@ -71,41 +72,41 @@ public class PecaServiceImpl implements PecaService {
 	public void validar(Pecas pecas) {
 		
 		if(pecas.getDescricao() == null || pecas.getDescricao().trim().equals("")) {
-			throw new RegraNegocioException("Informe uma Descrição válida.");
+			throw new RegraNegocioException(ConstantesUtils.DESCRICAO_VALIDA);
 		}
 		
 		if(pecas.getMes() == null || pecas.getMes() < 1 || pecas.getMes() > 12) {
-			throw new RegraNegocioException("Informe um Mês válido.");
+			throw new RegraNegocioException(ConstantesUtils.MES_VALIDO);
 		}
 		
 		if(pecas.getAno() == null || pecas.getAno().toString().length() != 4 ) {
-			throw new RegraNegocioException("Informe um Ano válido.");
+			throw new RegraNegocioException(ConstantesUtils.ANO_VALIDO);
 		}
 		
 		if(pecas.getUsuario() == null || pecas.getUsuario().getId() == null) {
-			throw new RegraNegocioException("Informe um Usuário.");
+			throw new RegraNegocioException(ConstantesUtils.INFORME_USUARIO);
 		}
 		
 		if(pecas.getValor() == null || pecas.getValor().compareTo(BigDecimal.ZERO) < 1 ) {
-			throw new RegraNegocioException("Informe um Valor válido.");
+			throw new RegraNegocioException(ConstantesUtils.INFORME_VALOR);
 		}
 		
 		if(pecas.getTipo() == null) {
-			throw new RegraNegocioException("Informe um tipo de Lançamento.");
+			throw new RegraNegocioException(ConstantesUtils.INFORME_PECAS);
 		}
 	}
 
 	@Override
 	public Optional<Pecas> obterPorId(Long id) {
-		return repository.findById(id);
+		return this.repository.findById(id);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public BigDecimal obterSaldoPorUsuario(Long id) {
 		
-		BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO);
-		BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.PIX, StatusLancamento.EFETIVADO);
+		BigDecimal receitas = this.repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO);
+		BigDecimal despesas = this.repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.PIX, StatusLancamento.EFETIVADO);
 		
 		if(receitas == null) {
 			receitas = BigDecimal.ZERO;
