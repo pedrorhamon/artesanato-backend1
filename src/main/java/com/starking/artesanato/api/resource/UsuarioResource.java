@@ -44,8 +44,8 @@ public class UsuarioResource {
 		}
 	}
 	
-	@PostMapping
-	public ResponseEntity salvar( @RequestBody UsuarioDTO dto ) {
+	@PostMapping()
+	public ResponseEntity<?>salvar( @RequestBody UsuarioDTO dto ) {
 		
 		Usuario usuario = Usuario.builder()
 					.nome(dto.getNome())
@@ -56,19 +56,19 @@ public class UsuarioResource {
 		
 		try {
 			Usuario usuarioSalvo = service.salvarUsuario(usuario);
-			return new ResponseEntity(usuarioSalvo, HttpStatus.CREATED);
+			return new ResponseEntity<>(usuarioSalvo, HttpStatus.CREATED);
 		}catch (RegraNegocioException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 		
 	}
 	
-	@GetMapping("{id}/saldo")
-	public ResponseEntity obterSaldo( @PathVariable("id") Long id ) {
+	@GetMapping("/{id}/saldo")
+	public ResponseEntity<?>obterSaldo( @PathVariable("id") Long id ) {
 		Optional<Usuario> usuario = service.obterPorId(id);
 		
 		if(!usuario.isPresent()) {
-			return new ResponseEntity( HttpStatus.NOT_FOUND );
+			return new ResponseEntity<>( HttpStatus.NOT_FOUND );
 		}
 		
 		BigDecimal saldo = pecaService.obterSaldoPorUsuario(id);
