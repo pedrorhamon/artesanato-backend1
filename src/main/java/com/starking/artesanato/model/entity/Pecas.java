@@ -3,12 +3,22 @@ package com.starking.artesanato.model.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,10 +60,10 @@ public class Pecas {
 	
 	@Column(name = "tipo")
 	@Enumerated(value = EnumType.STRING)
-	private TipoLancamento tipo;
+	private TipoPagamento tipo;
 	
 	@Column(name = "status")
 	@Enumerated(value = EnumType.STRING)
-	private StatusLancamento status;
+	private StatusPagamento status;
 
 }

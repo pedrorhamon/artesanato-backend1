@@ -1,6 +1,6 @@
 package com.starking.artesanato.model.enums;
 
-public enum StatusLancamento {
+public enum StatusPagamento {
 
 	PENDENTE,
 	CANCELADO,

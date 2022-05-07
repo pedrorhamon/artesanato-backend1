@@ -29,8 +29,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.entity.Usuario;
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 import com.starking.artesanato.model.repository.PecasRepository;
 import com.starking.artesanato.model.repository.PecasRepositoryTest;
 import com.starking.artesanato.service.impl.PecaServiceImpl;
@@ -52,7 +52,7 @@ public class PecasServiceTest {
 		
 		Pecas pecaSalvo = PecasRepositoryTest.criarPecas();
 		pecaSalvo.setId(1l);
-		pecaSalvo.setStatus(StatusLancamento.PENDENTE);
+		pecaSalvo.setStatus(StatusPagamento.PENDENTE);
 		when(repository.save(pecaSalvar)).thenReturn(pecaSalvo);
 		
 		//execucao
@@ -60,7 +60,7 @@ public class PecasServiceTest {
 		
 		//verificação
 		assertThat( pecas.getId() ).isEqualTo(pecaSalvo.getId());
-		assertThat(pecas.getStatus()).isEqualTo(StatusLancamento.PENDENTE);
+		assertThat(pecas.getStatus()).isEqualTo(StatusPagamento.PENDENTE);
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class PecasServiceTest {
 		//cenário
 		Pecas pecaSalvo = PecasRepositoryTest.criarPecas();
 		pecaSalvo.setId(1l);
-		pecaSalvo.setStatus(StatusLancamento.PENDENTE);
+		pecaSalvo.setStatus(StatusPagamento.PENDENTE);
 
 		doNothing().when(service).validar(pecaSalvo);
 		
@@ -155,9 +155,9 @@ public class PecasServiceTest {
 		//cenário
 		Pecas pecas = PecasRepositoryTest.criarPecas();
 		pecas.setId(1l);
-		pecas.setStatus(StatusLancamento.PENDENTE);
+		pecas.setStatus(StatusPagamento.PENDENTE);
 		
-		StatusLancamento novoStatus = StatusLancamento.EFETIVADO;
+		StatusPagamento novoStatus = StatusPagamento.EFETIVADO;
 		doReturn(pecas).when(service).atualizar(pecas);
 		
 		//execucao
@@ -273,11 +273,11 @@ public class PecasServiceTest {
 		Long idUsuario = 1l;
 		
 		when( repository
-				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO)) 
+				.obterSaldoPorTipoPecaEUsuarioEStatus(idUsuario, TipoPagamento.CREDITO, StatusPagamento.EFETIVADO)) 
 				.thenReturn(BigDecimal.valueOf(100));
 		
 		when( repository
-				.obterSaldoPorTipoLancamentoEUsuarioEStatus(idUsuario, TipoLancamento.PIX, StatusLancamento.EFETIVADO)) 
+				.obterSaldoPorTipoPecaEUsuarioEStatus(idUsuario, TipoPagamento.PIX, StatusPagamento.EFETIVADO)) 
 				.thenReturn(BigDecimal.valueOf(50));
 		
 		//execucao

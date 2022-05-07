@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.starking.artesanato.model.entity.Pecas;
-import com.starking.artesanato.model.enums.StatusLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
 
 public interface PecaService {
 
@@ -17,7 +17,7 @@ public interface PecaService {
 	
 	List<Pecas> buscar( Pecas pecasFiltro );
 	
-	void atualizarStatus(Pecas pecas, StatusLancamento status);
+	void atualizarStatus(Pecas pecas, StatusPagamento status);
 	
 	void validar(Pecas pecas);
 	

@@ -11,5 +11,7 @@ public interface ConstantesUtils {
 	public static final String INFORME_USUARIO = "Informe um Usuário.";
 	public static final String INFORME_VALOR = "Informe um Valor válido.";
 	public static final String INFORME_PECAS = "Informe um tipo de peças.";
-
+	public static final String USUARIO_NAO_ENCONTRADO_ID = "Não foi possível realizar a consulta. Usuário não encontrado para o Id informado.";
+	public static final String PECA_NAO_ENCONTRADA = "Peças não encontrado na base de Dados.";
+	public static final String ATUALIZAR_STATUS_PECA ="Não foi possível atualizar o status da Peça, envie um status válido.";
 }

@@ -5,17 +5,26 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.starking.artesanato.api.dto.AtualizaStatusDTO;
 import com.starking.artesanato.api.dto.PecasDTO;
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Pecas;
 import com.starking.artesanato.model.entity.Usuario;
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 import com.starking.artesanato.service.PecaService;
 import com.starking.artesanato.service.UsuarioService;
+import com.starking.artesanato.utils.ConstantesUtils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -42,7 +51,7 @@ public class PecasResource {
 		
 		Optional<Usuario> usuario = usuarioService.obterPorId(idUsuario);
 		if(!usuario.isPresent()) {
-			return ResponseEntity.badRequest().body("Não foi possível realizar a consulta. Usuário não encontrado para o Id informado.");
+			return ResponseEntity.badRequest().body(ConstantesUtils.USUARIO_NAO_ENCONTRADO_ID);
 		}else {
 			pecasFiltro.setUsuario(usuario.get());
 		}
@@ -52,7 +61,7 @@ public class PecasResource {
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<?> obterLancamento( @PathVariable("id") Long id ) {
+	public ResponseEntity<?> obterPeca( @PathVariable("id") Long id ) {
 		return service.obterPorId(id)
 					.map( pecas -> new ResponseEntity<>(converter(pecas), HttpStatus.OK) )
 					.orElseGet( () -> new ResponseEntity<>(HttpStatus.NOT_FOUND) );
@@ -61,9 +70,9 @@ public class PecasResource {
 	@PostMapping
 	public ResponseEntity<?> salvar( @RequestBody PecasDTO dto ) {
 		try {
-			Pecas entidade = converter(dto);
-			entidade = service.salvar(entidade);
-			return new ResponseEntity<>(entidade, HttpStatus.CREATED);
+			Pecas peca = converter(dto);
+			peca = service.salvar(peca);
+			return new ResponseEntity<>(peca, HttpStatus.CREATED);
 		}catch (RegraNegocioException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
@@ -81,16 +90,16 @@ public class PecasResource {
 				return ResponseEntity.badRequest().body(e.getMessage());
 			}
 		}).orElseGet( () ->
-			new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+			new ResponseEntity<>(ConstantesUtils.PECA_NAO_ENCONTRADA, HttpStatus.BAD_REQUEST) );
 	}
 	
 	@PutMapping("{id}/atualiza-status")
 	public ResponseEntity<?> atualizarStatus( @PathVariable("id") Long id , @RequestBody AtualizaStatusDTO dto ) {
 		return service.obterPorId(id).map( entity -> {
-			StatusLancamento statusSelecionado = StatusLancamento.valueOf(dto.getStatus());
+			StatusPagamento statusSelecionado = StatusPagamento.valueOf(dto.getStatus());
 			
 			if(statusSelecionado == null) {
-				return ResponseEntity.badRequest().body("Não foi possível atualizar o status do lançamento, envie um status válido.");
+				return ResponseEntity.badRequest().body(ConstantesUtils.ATUALIZAR_STATUS_PECA);
 			}
 			
 			try {
@@ -102,7 +111,7 @@ public class PecasResource {
 			}
 		
 		}).orElseGet( () ->
-		new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+		new ResponseEntity<>(ConstantesUtils.PECA_NAO_ENCONTRADA, HttpStatus.BAD_REQUEST) );
 	}
 	
 	@DeleteMapping("{id}")
@@ -111,7 +120,7 @@ public class PecasResource {
 			service.deletar(entidade);
 			return new ResponseEntity<>( HttpStatus.NO_CONTENT );
 		}).orElseGet( () -> 
-			new ResponseEntity<>("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST) );
+			new ResponseEntity<>(ConstantesUtils.PECA_NAO_ENCONTRADA, HttpStatus.BAD_REQUEST) );
 	}
 	
 	private PecasDTO converter(Pecas pecas) {
@@ -138,16 +147,16 @@ public class PecasResource {
 		
 		Usuario usuario = usuarioService
 			.obterPorId(dto.getUsuario())
-			.orElseThrow( () -> new RegraNegocioException("Usuário não encontrado para o Id informado.") );
+			.orElseThrow( () -> new RegraNegocioException(ConstantesUtils.USUARIO_NAO_ENCONTRADO_ID) );
 		
 		pecas.setUsuario(usuario);
 
 		if(dto.getTipo() != null) {
-			pecas.setTipo(TipoLancamento.valueOf(dto.getTipo()));
+			pecas.setTipo(TipoPagamento.valueOf(dto.getTipo()));
 		}
 		
 		if(dto.getStatus() != null) {
-			pecas.setStatus(StatusLancamento.valueOf(dto.getStatus()));
+			pecas.setStatus(StatusPagamento.valueOf(dto.getStatus()));
 		}
 		
 		return pecas;

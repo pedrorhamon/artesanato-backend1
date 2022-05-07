@@ -7,17 +7,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.starking.artesanato.model.entity.Pecas;
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 
 public interface PecasRepository extends JpaRepository<Pecas, Long> {
 
 	@Query( value = 
 			  " select sum(l.valor) from Pecas l join l.usuario u "
 			+ " where u.id = :idUsuario and l.tipo =:tipo and l.status = :status group by u " )
-	BigDecimal obterSaldoPorTipoLancamentoEUsuarioEStatus(
+	BigDecimal obterSaldoPorTipoPecaEUsuarioEStatus(
 			@Param("idUsuario") Long idUsuario, 
-			@Param("tipo") TipoLancamento tipo,
-			@Param("status") StatusLancamento status);
+			@Param("tipo") TipoPagamento tipo,
+			@Param("status") StatusPagamento status);
 	
 }

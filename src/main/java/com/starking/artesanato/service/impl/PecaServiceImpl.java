@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Pecas;
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 import com.starking.artesanato.model.repository.PecasRepository;
 import com.starking.artesanato.service.PecaService;
 import com.starking.artesanato.utils.ConstantesUtils;
@@ -32,7 +32,7 @@ public class PecaServiceImpl implements PecaService {
 	@Transactional
 	public Pecas salvar(Pecas pecas) {
 		validar(pecas);
-		pecas.setStatus(StatusLancamento.PENDENTE);
+		pecas.setStatus(StatusPagamento.PENDENTE);
 		return this.repository.save(pecas);
 	}
 
@@ -63,7 +63,7 @@ public class PecaServiceImpl implements PecaService {
 	}
 
 	@Override
-	public void atualizarStatus(Pecas pecas, StatusLancamento status) {
+	public void atualizarStatus(Pecas pecas, StatusPagamento status) {
 		pecas.setStatus(status);
 		atualizar(pecas);
 	}
@@ -105,18 +105,18 @@ public class PecaServiceImpl implements PecaService {
 	@Transactional(readOnly = true)
 	public BigDecimal obterSaldoPorUsuario(Long id) {
 		
-		BigDecimal receitas = this.repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.CREDITO, StatusLancamento.EFETIVADO);
-		BigDecimal despesas = this.repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.PIX, StatusLancamento.EFETIVADO);
+		BigDecimal credito = this.repository.obterSaldoPorTipoPecaEUsuarioEStatus(id, TipoPagamento.CREDITO, StatusPagamento.EFETIVADO);
+		BigDecimal pix = this.repository.obterSaldoPorTipoPecaEUsuarioEStatus(id, TipoPagamento.PIX, StatusPagamento.EFETIVADO);
 		
-		if(receitas == null) {
-			receitas = BigDecimal.ZERO;
+		if(credito == null) {
+			credito = BigDecimal.ZERO;
 		}
 		
-		if(despesas == null) {
-			despesas = BigDecimal.ZERO;
+		if(pix == null) {
+			pix = BigDecimal.ZERO;
 		}
 		
-		return receitas.subtract(despesas);
+		return credito.subtract(pix);
 	}
 
 }

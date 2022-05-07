@@ -17,8 +17,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.starking.artesanato.model.entity.Pecas;
-import com.starking.artesanato.model.enums.StatusLancamento;
-import com.starking.artesanato.model.enums.TipoLancamento;
+import com.starking.artesanato.model.enums.StatusPagamento;
+import com.starking.artesanato.model.enums.TipoPagamento;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
@@ -60,7 +60,7 @@ public class PecasRepositoryTest {
 		
 		pecas.setAno(2018);
 		pecas.setDescricao("Teste Atualizar");
-		pecas.setStatus(StatusLancamento.CANCELADO);
+		pecas.setStatus(StatusPagamento.CANCELADO);
 		
 		repository.save(pecas);
 		
@@ -68,7 +68,7 @@ public class PecasRepositoryTest {
 		
 		assertThat(pecaAtualizado.getAno()).isEqualTo(2018);
 		assertThat(pecaAtualizado.getDescricao()).isEqualTo("Teste Atualizar");
-		assertThat(pecaAtualizado.getStatus()).isEqualTo(StatusLancamento.CANCELADO);
+		assertThat(pecaAtualizado.getStatus()).isEqualTo(StatusPagamento.CANCELADO);
 	}
 	
 	@Test
@@ -92,8 +92,8 @@ public class PecasRepositoryTest {
 									.mes(1)
 									.descricao("Peças qualquer")
 									.valor(BigDecimal.valueOf(10))
-									.tipo(TipoLancamento.CREDITO)
-									.status(StatusLancamento.PENDENTE)
+									.tipo(TipoPagamento.CREDITO)
+									.status(StatusPagamento.PENDENTE)
 									.dataCadastro(LocalDate.now())
 									.build();
 	}
