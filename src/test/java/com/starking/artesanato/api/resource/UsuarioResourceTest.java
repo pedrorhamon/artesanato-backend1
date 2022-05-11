@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.starking.artesanato.api.dto.UsuarioDTO;
-import com.starking.artesanato.api.resource.UsuarioResource;
 import com.starking.artesanato.exception.ErroAutenticacao;
 import com.starking.artesanato.exception.RegraNegocioException;
 import com.starking.artesanato.model.entity.Usuario;

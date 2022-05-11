@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.starking.artesanato.model.entity.Usuario;
 import com.starking.artesanato.service.JwtService;
 import com.starking.artesanato.service.impl.SecurityUserDetailsService;
 

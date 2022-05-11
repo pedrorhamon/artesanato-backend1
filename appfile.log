@@ -1,597 +1,147 @@
-2022-05-07 09:47:55.208  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 09:47:55.234  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 09:47:55.371  INFO 21904 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2022-05-07 09:47:55.372  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-07 09:47:55.372  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-07 09:47:57.996  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 09:47:58.189  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 167ms. Found 2 JPA repository interfaces.
-2022-05-07 09:47:59.016  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 09:48:00.260  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 09:48:00.287  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 09:48:00.288  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 09:48:00.456  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 09:48:00.457  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5084 ms
-2022-05-07 09:48:00.597  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 09:48:00.850  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-07 09:48:01.623  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-07 09:48:01.754  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 09:48:02.052  INFO 21904 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
-2022-05-07 09:48:02.546  INFO 21904 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2022-05-07 09:48:02.873  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 09:48:04.968  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 09:48:04.983  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 09:48:06.218  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 09:48:07.553  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73114ab1, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ef65d66, org.springframework.security.web.header.HeaderWriterFilter@524d714b, org.springframework.security.web.authentication.logout.LogoutFilter@67f49cf5, com.starking.artesanato.api.JwtTokenFilter@6e2552e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14aa561b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@140651d9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62c54dc8, org.springframework.security.web.session.SessionManagementFilter@48ce1abe, org.springframework.security.web.access.ExceptionTranslationFilter@32d33417, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e3a5342]
-2022-05-07 09:48:08.330  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 09:48:08.339  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 09:48:08.505  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 09:48:08.508  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 14.475 seconds (JVM running for 15.793)
-2022-05-07 11:15:49.942  INFO 21904 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:15:49.966  INFO 21904 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-05-07 11:15:49.977  INFO 21904 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-05-07 11:15:50.686  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:15:50.686  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:15:51.652  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:15:51.726  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 2 JPA repository interfaces.
-2022-05-07 11:15:51.908  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:15:51.983  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:15:52.107  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:15:52.108  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:15:52.109  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:15:52.140  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:15:52.140  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1441 ms
-2022-05-07 11:15:52.203  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:15:52.247  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-05-07 11:15:52.333  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-05-07 11:15:52.348  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:15:52.361  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:15:52.671  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:15:52.672  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:15:52.913  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:15:53.193  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1977ef89, org.springframework.security.web.context.SecurityContextPersistenceFilter@350002cc, org.springframework.security.web.header.HeaderWriterFilter@65860f4, org.springframework.security.web.authentication.logout.LogoutFilter@3ebd2ac9, com.starking.artesanato.api.JwtTokenFilter@2b45fa03, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d0b1038, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58918cad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54ca263, org.springframework.security.web.session.SessionManagementFilter@1cb9ecbf, org.springframework.security.web.access.ExceptionTranslationFilter@69582f63, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c9b8788]
-2022-05-07 11:15:53.479  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:15:53.486  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:15:53.523  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:15:53.525  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 2.914 seconds (JVM running for 5280.811)
-2022-05-07 11:15:53.532  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:16:08.352  INFO 21904 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:16:08.356  INFO 21904 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-05-07 11:16:08.374  INFO 21904 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-05-07 11:16:08.876  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:16:08.877  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:16:09.680  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:16:09.723  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 2 JPA repository interfaces.
-2022-05-07 11:16:09.832  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:16:09.872  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:16:09.964  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:16:09.965  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:16:09.965  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:16:09.987  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:16:09.987  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1101 ms
-2022-05-07 11:16:10.032  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:16:10.069  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2022-05-07 11:16:10.133  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2022-05-07 11:16:10.145  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:16:10.153  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:16:10.422  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:16:10.422  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:16:10.555  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:16:10.765  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f879343, org.springframework.security.web.context.SecurityContextPersistenceFilter@9f46e14, org.springframework.security.web.header.HeaderWriterFilter@252228da, org.springframework.security.web.authentication.logout.LogoutFilter@605447de, com.starking.artesanato.api.JwtTokenFilter@a6a0c01, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62d30311, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56039369, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68f3b64d, org.springframework.security.web.session.SessionManagementFilter@35a5381a, org.springframework.security.web.access.ExceptionTranslationFilter@2c88e88b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@68907472]
-2022-05-07 11:16:10.996  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:16:11.002  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:16:11.037  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:16:11.038  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 2.212 seconds (JVM running for 5298.324)
-2022-05-07 11:16:11.044  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:16:58.805  INFO 21904 --- [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:16:58.807  INFO 21904 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2022-05-07 11:16:58.811  INFO 21904 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2022-05-07 11:16:59.332  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:16:59.333  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:17:00.108  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:17:00.144  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35ms. Found 2 JPA repository interfaces.
-2022-05-07 11:17:00.235  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:17:00.269  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:17:00.345  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:17:00.346  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:17:00.347  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:17:00.368  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:17:00.369  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1029 ms
-2022-05-07 11:17:00.403  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:17:00.426  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
-2022-05-07 11:17:00.595  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
-2022-05-07 11:17:00.606  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:17:00.612  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:17:00.826  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:17:00.826  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:17:00.938  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:17:01.144  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@28494d48, org.springframework.security.web.context.SecurityContextPersistenceFilter@19c0e981, org.springframework.security.web.header.HeaderWriterFilter@76679b49, org.springframework.security.web.authentication.logout.LogoutFilter@18dd518, com.starking.artesanato.api.JwtTokenFilter@7bb30a9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@171ab87c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d6dc405, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62f2edc, org.springframework.security.web.session.SessionManagementFilter@7d57fce7, org.springframework.security.web.access.ExceptionTranslationFilter@3ea60e53, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2adbdc62]
-2022-05-07 11:17:01.329  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:17:01.336  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:17:01.362  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:17:01.363  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 2.076 seconds (JVM running for 5348.649)
-2022-05-07 11:17:01.368  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:17:08.049  INFO 21904 --- [Thread-22] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:17:08.051  INFO 21904 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
-2022-05-07 11:17:08.056  INFO 21904 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
-2022-05-07 11:17:08.475  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:17:08.475  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:17:09.022  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:17:09.055  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32ms. Found 2 JPA repository interfaces.
-2022-05-07 11:17:09.181  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:17:09.217  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:17:09.299  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:17:09.300  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:17:09.301  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:17:09.320  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:17:09.320  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 838 ms
-2022-05-07 11:17:09.370  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:17:09.411  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
-2022-05-07 11:17:09.480  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
-2022-05-07 11:17:09.495  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:17:09.501  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:17:09.721  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:17:09.721  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:17:09.840  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:17:10.011  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d824a32, org.springframework.security.web.context.SecurityContextPersistenceFilter@47c4d1e7, org.springframework.security.web.header.HeaderWriterFilter@3d68da58, org.springframework.security.web.authentication.logout.LogoutFilter@5348ea03, com.starking.artesanato.api.JwtTokenFilter@7383a085, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e99c67f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25d87dee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@417e0e67, org.springframework.security.web.session.SessionManagementFilter@58f9ea8e, org.springframework.security.web.access.ExceptionTranslationFilter@51d903bb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@283a51d7]
-2022-05-07 11:17:10.231  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:17:10.236  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:17:10.271  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:17:10.273  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.843 seconds (JVM running for 5357.559)
-2022-05-07 11:17:10.279  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:18:12.552  INFO 21904 --- [Thread-28] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:18:12.555  INFO 21904 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
-2022-05-07 11:18:12.569  INFO 21904 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
-2022-05-07 11:18:13.041  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:18:13.042  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:18:13.625  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:18:13.667  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 2 JPA repository interfaces.
-2022-05-07 11:18:13.760  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:18:13.794  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:18:13.865  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:18:13.866  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:18:13.866  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:18:13.885  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:18:13.885  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 839 ms
-2022-05-07 11:18:13.919  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:18:13.940  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
-2022-05-07 11:18:13.997  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
-2022-05-07 11:18:14.007  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:18:14.013  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:18:14.204  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:18:14.204  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:18:14.325  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:18:14.507  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54519cc5, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f129218, org.springframework.security.web.header.HeaderWriterFilter@4f6613fd, org.springframework.security.web.authentication.logout.LogoutFilter@66b4d454, com.starking.artesanato.api.JwtTokenFilter@72ee367f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d4aaee6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52ccb949, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e9dd80c, org.springframework.security.web.session.SessionManagementFilter@b7c864d, org.springframework.security.web.access.ExceptionTranslationFilter@72020703, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e47b3c8]
-2022-05-07 11:18:14.750  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:18:14.758  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:18:14.793  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:18:14.795  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.796 seconds (JVM running for 5422.081)
-2022-05-07 11:18:14.800  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:18:48.124  INFO 21904 --- [Thread-34] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:18:48.129  INFO 21904 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
-2022-05-07 11:18:48.141  INFO 21904 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
-2022-05-07 11:18:48.616  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:18:48.616  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:18:49.081  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:18:49.109  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 2 JPA repository interfaces.
-2022-05-07 11:18:49.217  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:18:49.250  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:18:49.316  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:18:49.317  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:18:49.317  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:18:49.344  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:18:49.344  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 721 ms
-2022-05-07 11:18:49.391  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:18:49.415  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
-2022-05-07 11:18:49.477  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
-2022-05-07 11:18:49.488  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:18:49.495  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:18:49.702  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:18:49.703  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:18:49.827  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:18:49.988  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56a6f7bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@3feeb65a, org.springframework.security.web.header.HeaderWriterFilter@28e39aa, org.springframework.security.web.authentication.logout.LogoutFilter@4071f583, com.starking.artesanato.api.JwtTokenFilter@2d5eeef3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40a15941, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33917b96, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3130525d, org.springframework.security.web.session.SessionManagementFilter@586c346b, org.springframework.security.web.access.ExceptionTranslationFilter@567538ae, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@597cf229]
-2022-05-07 11:18:50.130  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:18:50.134  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:18:50.154  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:18:50.155  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.585 seconds (JVM running for 5457.442)
-2022-05-07 11:18:50.158  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:19:43.160  INFO 21904 --- [Thread-40] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:19:43.164  INFO 21904 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
-2022-05-07 11:19:43.175  INFO 21904 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
-2022-05-07 11:19:43.645  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:19:43.645  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:19:44.139  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:19:44.167  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 2 JPA repository interfaces.
-2022-05-07 11:19:44.249  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:19:44.284  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:19:44.348  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:19:44.348  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:19:44.348  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:19:44.374  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:19:44.374  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 724 ms
-2022-05-07 11:19:44.410  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:19:44.431  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
-2022-05-07 11:19:44.495  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
-2022-05-07 11:19:44.505  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:19:44.511  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:19:44.690  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:19:44.690  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:19:44.796  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:19:44.963  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@500fd5aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a0a09ee, org.springframework.security.web.header.HeaderWriterFilter@748cd42, org.springframework.security.web.authentication.logout.LogoutFilter@4a0f1de4, com.starking.artesanato.api.JwtTokenFilter@14d639c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@493c908a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8df7632, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6667dbfa, org.springframework.security.web.session.SessionManagementFilter@52ad5f4b, org.springframework.security.web.access.ExceptionTranslationFilter@329a39fc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39a0d501]
-2022-05-07 11:19:45.146  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:19:45.150  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:19:45.174  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:19:45.175  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.58 seconds (JVM running for 5512.461)
-2022-05-07 11:19:45.178  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:20:47.845  INFO 21904 --- [Thread-46] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:20:47.847  INFO 21904 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
-2022-05-07 11:20:47.858  INFO 21904 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
-2022-05-07 11:20:48.395  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:20:48.395  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:20:48.886  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:20:48.918  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32ms. Found 2 JPA repository interfaces.
-2022-05-07 11:20:49.020  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:20:49.051  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:20:49.111  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:20:49.112  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:20:49.112  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:20:49.127  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:20:49.128  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 729 ms
-2022-05-07 11:20:49.159  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:20:49.181  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
-2022-05-07 11:20:49.240  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
-2022-05-07 11:20:49.251  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:20:49.256  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:20:49.455  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:20:49.455  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:20:49.558  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:20:49.679  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@752e8df9, org.springframework.security.web.context.SecurityContextPersistenceFilter@c94316, org.springframework.security.web.header.HeaderWriterFilter@69ecb92d, org.springframework.security.web.authentication.logout.LogoutFilter@af5be00, com.starking.artesanato.api.JwtTokenFilter@59d2dc3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f5182b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37867a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39f597e9, org.springframework.security.web.session.SessionManagementFilter@6ea5ae13, org.springframework.security.web.access.ExceptionTranslationFilter@2ae4be6d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19192d20]
-2022-05-07 11:20:49.816  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:20:49.819  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:20:49.841  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:20:49.843  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.493 seconds (JVM running for 5577.129)
-2022-05-07 11:20:49.846  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:21:31.543  INFO 21904 --- [Thread-52] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:21:31.545  INFO 21904 --- [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
-2022-05-07 11:21:31.558  INFO 21904 --- [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
-2022-05-07 11:21:32.101  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:21:32.102  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:21:32.626  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:21:32.662 ERROR 21904 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+2022-05-09 19:22:19.581  WARN 19228 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2d5h3m8s995ms166µs200ns).
+2022-05-09 19:35:39.660  WARN 19228 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s360ms360µs500ns).
+2022-05-09 19:54:18.605  WARN 19228 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m8s843ms120µs400ns).
+2022-05-09 20:49:59.460  INFO 16180 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 16180 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
+2022-05-09 20:49:59.470  INFO 16180 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
+2022-05-09 20:49:59.611  INFO 16180 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2022-05-09 20:49:59.611  INFO 16180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-09 20:49:59.611  INFO 16180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-09 20:50:02.765  INFO 16180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-09 20:50:03.054  INFO 16180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 255ms. Found 2 JPA repository interfaces.
+2022-05-09 20:50:04.194  INFO 16180 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-09 20:50:05.466  INFO 16180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-09 20:50:05.512  INFO 16180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 20:50:05.514  INFO 16180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-05-09 20:50:05.789  INFO 16180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-09 20:50:05.790  INFO 16180 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6179 ms
+2022-05-09 20:50:05.939  WARN 16180 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-09 20:50:06.184  INFO 16180 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-09 20:50:07.163  INFO 16180 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-09 20:50:07.351  INFO 16180 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 20:50:07.688  INFO 16180 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2022-05-09 20:50:08.170  INFO 16180 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-05-09 20:50:08.619  INFO 16180 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-09 20:50:10.910  INFO 16180 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 20:50:10.940  INFO 16180 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-09 20:50:12.290  INFO 16180 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
+2022-05-09 20:50:13.945  INFO 16180 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38d86479, org.springframework.security.web.context.SecurityContextPersistenceFilter@44d47dd4, org.springframework.security.web.header.HeaderWriterFilter@6c95dc9, org.springframework.security.web.authentication.logout.LogoutFilter@abaca29, com.starking.artesanato.api.JwtTokenFilter@574d5f97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4311d5ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38fe24dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62e35353, org.springframework.security.web.session.SessionManagementFilter@6caa2368, org.springframework.security.web.access.ExceptionTranslationFilter@47a25492, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5927262b]
+2022-05-09 20:50:14.919  INFO 16180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-09 20:50:14.934  INFO 16180 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 20:50:15.101  INFO 16180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-09 20:50:15.106  INFO 16180 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 16.868 seconds (JVM running for 19.13)
+2022-05-09 21:02:57.559  INFO 9916 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 9916 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
+2022-05-09 21:02:57.570  INFO 9916 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
+2022-05-09 21:02:57.723  INFO 9916 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2022-05-09 21:02:57.724  INFO 9916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-09 21:02:57.724  INFO 9916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-09 21:03:00.621  INFO 9916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-09 21:03:00.929  INFO 9916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 278ms. Found 2 JPA repository interfaces.
+2022-05-09 21:03:02.191  INFO 9916 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-09 21:03:03.541  INFO 9916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-09 21:03:03.572  INFO 9916 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 21:03:03.573  INFO 9916 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-05-09 21:03:03.824  INFO 9916 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-09 21:03:03.826  INFO 9916 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6100 ms
+2022-05-09 21:03:03.977  WARN 9916 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-09 21:03:04.231  INFO 9916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-09 21:03:05.246  INFO 9916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-09 21:03:05.482  INFO 9916 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 21:03:05.804  INFO 9916 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2022-05-09 21:03:06.370  INFO 9916 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-05-09 21:03:06.936  INFO 9916 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-09 21:03:09.608  INFO 9916 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 21:03:09.641  INFO 9916 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-09 21:03:11.156  INFO 9916 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
+2022-05-09 21:03:12.807  INFO 9916 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32cb081c, org.springframework.security.web.context.SecurityContextPersistenceFilter@35b0bca8, org.springframework.security.web.header.HeaderWriterFilter@56317991, org.springframework.security.web.authentication.logout.LogoutFilter@7cddcf32, com.starking.artesanato.api.JwtTokenFilter@484059db, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47a5a9c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e18c2d3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e0e9fd3, org.springframework.security.web.session.SessionManagementFilter@5c34d3a3, org.springframework.security.web.access.ExceptionTranslationFilter@63148e25, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1283d72c]
+2022-05-09 21:03:13.825  WARN 9916 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-05-09 21:03:13.836  INFO 9916 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 21:03:13.960  INFO 9916 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-05-09 21:03:13.971  WARN 9916 --- [restartedMain] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+2022-05-09 21:03:13.979  INFO 9916 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
-java.lang.NoClassDefFoundError: TipoLancamento
-	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetPublicMethods(Class.java:2902) ~[na:1.8.0_202]
-	at java.lang.Class.getMethods(Class.java:1615) ~[na:1.8.0_202]
-	at org.springframework.data.repository.util.ReactiveWrappers.usesReactiveType(ReactiveWrappers.java:171) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.isReactiveRepository(AbstractRepositoryMetadata.java:129) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.useRepositoryConfiguration(RepositoryConfigurationExtensionSupport.java:365) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:107) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:148) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:385) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[na:1.8.0_202]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:384) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:337) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:242) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at com.starking.artesanato.ArtesanatoApplication.main(ArtesanatoApplication.java:11) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-Caused by: java.lang.ClassNotFoundException: TipoLancamento
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:382) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_202]
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:144) ~[spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	... 33 common frames omitted
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-05-09 21:03:13.988 ERROR 9916 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-2022-05-07 11:21:57.855  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-07 11:21:57.856  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-07 11:21:57.869  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:21:57.869  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:21:58.368  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:21:58.388 ERROR 21904 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+***************************
+APPLICATION FAILED TO START
+***************************
 
-java.lang.NoClassDefFoundError: TipoLancamento
-	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetPublicMethods(Class.java:2902) ~[na:1.8.0_202]
-	at java.lang.Class.getMethods(Class.java:1615) ~[na:1.8.0_202]
-	at org.springframework.data.repository.util.ReactiveWrappers.usesReactiveType(ReactiveWrappers.java:171) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.isReactiveRepository(AbstractRepositoryMetadata.java:129) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.useRepositoryConfiguration(RepositoryConfigurationExtensionSupport.java:365) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:107) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:148) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:385) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[na:1.8.0_202]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:384) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:337) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:242) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at com.starking.artesanato.ArtesanatoApplication.main(ArtesanatoApplication.java:11) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-Caused by: java.lang.ClassNotFoundException: TipoLancamento
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:382) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_202]
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:144) ~[spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	... 33 common frames omitted
+Description:
 
-2022-05-07 11:22:27.622  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-07 11:22:27.622  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-07 11:22:27.635  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:22:27.635  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:22:28.106  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:22:28.147 ERROR 21904 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+Web server failed to start. Port 8080 was already in use.
 
-java.lang.NoClassDefFoundError: TipoLancamento
-	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701) ~[na:1.8.0_202]
-	at java.lang.Class.privateGetPublicMethods(Class.java:2902) ~[na:1.8.0_202]
-	at java.lang.Class.getMethods(Class.java:1615) ~[na:1.8.0_202]
-	at org.springframework.data.repository.util.ReactiveWrappers.usesReactiveType(ReactiveWrappers.java:171) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.isReactiveRepository(AbstractRepositoryMetadata.java:129) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.useRepositoryConfiguration(RepositoryConfigurationExtensionSupport.java:365) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:107) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:148) ~[spring-data-commons-2.2.3.RELEASE.jar:2.2.3.RELEASE]
-	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62) ~[spring-boot-autoconfigure-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:385) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[na:1.8.0_202]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:384) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:337) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:242) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at com.starking.artesanato.ArtesanatoApplication.main(ArtesanatoApplication.java:11) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-Caused by: java.lang.ClassNotFoundException: TipoLancamento
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:382) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_202]
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349) ~[na:1.8.0_202]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:144) ~[spring-boot-devtools-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_202]
-	... 33 common frames omitted
+Action:
 
-2022-05-07 11:22:51.309  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-07 11:22:51.310  INFO 21904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-07 11:22:51.319  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:22:51.319  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:22:51.861  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:22:51.896  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35ms. Found 2 JPA repository interfaces.
-2022-05-07 11:22:52.003  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:22:52.040  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:22:52.133  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:22:52.133  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:22:52.134  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:22:52.157  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:22:52.158  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 835 ms
-2022-05-07 11:22:52.208  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:22:52.237  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
-2022-05-07 11:22:52.315  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
-2022-05-07 11:22:52.326  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:22:52.334  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:22:52.532  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:22:52.532  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:22:52.671  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:22:52.838  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1eb81d9a, org.springframework.security.web.context.SecurityContextPersistenceFilter@49bae7e1, org.springframework.security.web.header.HeaderWriterFilter@32510ca, org.springframework.security.web.authentication.logout.LogoutFilter@2e5abd86, com.starking.artesanato.api.JwtTokenFilter@53448416, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c00921c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67886816, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59cb44f4, org.springframework.security.web.session.SessionManagementFilter@55c05bdc, org.springframework.security.web.access.ExceptionTranslationFilter@1d630b89, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19e52409]
-2022-05-07 11:22:53.010  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:22:53.016  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:22:53.037  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:22:53.038  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.749 seconds (JVM running for 5700.324)
-2022-05-07 11:22:53.042  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:22:56.514  INFO 21904 --- [Thread-58] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:22:56.515  INFO 21904 --- [Thread-58] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
-2022-05-07 11:22:56.532  INFO 21904 --- [Thread-58] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
-2022-05-07 11:22:57.097  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:22:57.097  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:22:57.549  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:22:57.575  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25ms. Found 2 JPA repository interfaces.
-2022-05-07 11:22:57.654  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:22:57.692  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:22:57.780  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:22:57.781  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:22:57.781  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:22:57.801  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:22:57.801  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 700 ms
-2022-05-07 11:22:57.834  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:22:57.853  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
-2022-05-07 11:22:57.911  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
-2022-05-07 11:22:57.920  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:22:57.925  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:22:58.111  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:22:58.111  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:22:58.227  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:22:58.399  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ad0e48f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3acd54, org.springframework.security.web.header.HeaderWriterFilter@6e9631b0, org.springframework.security.web.authentication.logout.LogoutFilter@59fe4b28, com.starking.artesanato.api.JwtTokenFilter@30d9d7cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@99c7ecf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56d8c5fd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39de502d, org.springframework.security.web.session.SessionManagementFilter@60489639, org.springframework.security.web.access.ExceptionTranslationFilter@77a06e42, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2bc6f829]
-2022-05-07 11:22:58.590  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:22:58.593  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:22:58.615  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:22:58.616  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.564 seconds (JVM running for 5705.902)
-2022-05-07 11:22:58.619  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:23:59.744  INFO 21904 --- [Thread-73] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:23:59.747  INFO 21904 --- [Thread-73] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
-2022-05-07 11:23:59.760  INFO 21904 --- [Thread-73] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
-2022-05-07 11:24:00.284  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:24:00.285  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:24:00.794  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:24:00.832  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37ms. Found 2 JPA repository interfaces.
-2022-05-07 11:24:00.950  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:24:00.979  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:24:01.045  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:24:01.045  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:24:01.045  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:24:01.063  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:24:01.063  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 774 ms
-2022-05-07 11:24:01.091  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:24:01.116  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
-2022-05-07 11:24:01.178  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
-2022-05-07 11:24:01.189  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:24:01.196  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:24:01.366  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:24:01.366  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:01.473  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:24:01.650  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3288ce16, org.springframework.security.web.context.SecurityContextPersistenceFilter@b3ecd74, org.springframework.security.web.header.HeaderWriterFilter@79e61800, org.springframework.security.web.authentication.logout.LogoutFilter@404c57a9, com.starking.artesanato.api.JwtTokenFilter@d49c084, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a3eff97, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3351dec8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72a31c4c, org.springframework.security.web.session.SessionManagementFilter@1fa23335, org.springframework.security.web.access.ExceptionTranslationFilter@6e63f246, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b43ab0f]
-2022-05-07 11:24:01.812  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:24:01.818  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:24:01.853  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:24:01.854  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.614 seconds (JVM running for 5769.14)
-2022-05-07 11:24:01.858  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:24:23.861  INFO 21904 --- [Thread-79] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:23.863  INFO 21904 --- [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
-2022-05-07 11:24:23.876  INFO 21904 --- [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
-2022-05-07 11:24:24.333  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:24:24.333  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:24:24.864  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:24:24.892  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 2 JPA repository interfaces.
-2022-05-07 11:24:24.971  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:24:24.998  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:24:25.064  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:24:25.065  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:24:25.065  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:24:25.083  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:24:25.083  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 747 ms
-2022-05-07 11:24:25.125  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:24:25.146  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
-2022-05-07 11:24:25.210  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
-2022-05-07 11:24:25.219  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:24:25.225  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:24:25.408  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:24:25.408  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:25.524  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:24:25.679  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a7ad77c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a20a31e, org.springframework.security.web.header.HeaderWriterFilter@13f364ef, org.springframework.security.web.authentication.logout.LogoutFilter@222b3d2f, com.starking.artesanato.api.JwtTokenFilter@18963f3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26953a3b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ec9f61a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bc25477, org.springframework.security.web.session.SessionManagementFilter@1df1d4e4, org.springframework.security.web.access.ExceptionTranslationFilter@89693e2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d540033]
-2022-05-07 11:24:25.854  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:24:25.859  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:24:25.891  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:24:25.892  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.601 seconds (JVM running for 5793.178)
-2022-05-07 11:24:25.895  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:24:31.415  INFO 21904 --- [Thread-85] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:31.418  INFO 21904 --- [Thread-85] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
-2022-05-07 11:24:31.435  INFO 21904 --- [Thread-85] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
-2022-05-07 11:24:31.999  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:24:31.999  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:24:32.495  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:24:32.523  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 2 JPA repository interfaces.
-2022-05-07 11:24:32.596  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:24:32.622  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:24:32.688  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:24:32.689  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:24:32.689  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:24:32.707  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:24:32.707  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 704 ms
-2022-05-07 11:24:32.737  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:24:32.761  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
-2022-05-07 11:24:32.820  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
-2022-05-07 11:24:32.831  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:24:32.839  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:24:33.022  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:24:33.022  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:33.147  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:24:33.337  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@322367a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d85bb1a, org.springframework.security.web.header.HeaderWriterFilter@2b5b68b8, org.springframework.security.web.authentication.logout.LogoutFilter@86eedb0, com.starking.artesanato.api.JwtTokenFilter@3b5ac03d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b3345c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bddfeb2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28e435b4, org.springframework.security.web.session.SessionManagementFilter@385b74d4, org.springframework.security.web.access.ExceptionTranslationFilter@73e8ad1b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13a81e52]
-2022-05-07 11:24:33.520  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:24:33.524  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:24:33.544  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:24:33.545  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.609 seconds (JVM running for 5800.831)
-2022-05-07 11:24:33.548  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:24:57.237  INFO 21904 --- [Thread-91] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:57.240  INFO 21904 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
-2022-05-07 11:24:57.250  INFO 21904 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
-2022-05-07 11:24:57.793  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 21904 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:24:57.794  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:24:58.254  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:24:58.281  INFO 21904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 2 JPA repository interfaces.
-2022-05-07 11:24:58.385  INFO 21904 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:24:58.420  WARN 21904 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2022-05-07 11:24:58.485  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:24:58.486  INFO 21904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:24:58.486  INFO 21904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:24:58.501  INFO 21904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:24:58.501  INFO 21904 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 702 ms
-2022-05-07 11:24:58.538  WARN 21904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:24:58.558  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Starting...
-2022-05-07 11:24:58.621  INFO 21904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Start completed.
-2022-05-07 11:24:58.632  INFO 21904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:24:58.640  INFO 21904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:24:58.829  INFO 21904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:24:58.829  INFO 21904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:24:58.933  INFO 21904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:24:59.115  INFO 21904 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1665e2b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@57ac550, org.springframework.security.web.header.HeaderWriterFilter@53b99cd0, org.springframework.security.web.authentication.logout.LogoutFilter@16ff2c02, com.starking.artesanato.api.JwtTokenFilter@35368c08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50719f0d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fb1c6cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31093fdd, org.springframework.security.web.session.SessionManagementFilter@7d0ee928, org.springframework.security.web.access.ExceptionTranslationFilter@3c7d3476, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5641ef5f]
-2022-05-07 11:24:59.323  INFO 21904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:24:59.327  INFO 21904 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:24:59.356  INFO 21904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-07 11:24:59.358  INFO 21904 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 1.61 seconds (JVM running for 5826.644)
-2022-05-07 11:24:59.365  INFO 21904 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-07 11:43:41.043  INFO 19228 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 19228 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
-2022-05-07 11:43:41.054  INFO 19228 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
-2022-05-07 11:43:41.196  INFO 19228 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2022-05-07 11:43:41.196  INFO 19228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-07 11:43:41.197  INFO 19228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-07 11:43:43.595  INFO 19228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-07 11:43:43.760  INFO 19228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143ms. Found 2 JPA repository interfaces.
-2022-05-07 11:43:44.552  INFO 19228 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-05-07 11:43:45.606  INFO 19228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-07 11:43:45.644  INFO 19228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-07 11:43:45.645  INFO 19228 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2022-05-07 11:43:45.832  INFO 19228 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-07 11:43:45.833  INFO 19228 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4635 ms
-2022-05-07 11:43:45.940  WARN 19228 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-07 11:43:46.159  INFO 19228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-07 11:43:47.012  INFO 19228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-07 11:43:47.122  INFO 19228 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-07 11:43:47.413  INFO 19228 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
-2022-05-07 11:43:47.914  INFO 19228 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2022-05-07 11:43:48.343  INFO 19228 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-05-07 11:43:50.111  INFO 19228 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-07 11:43:50.135  INFO 19228 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-07 11:43:51.217  INFO 19228 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
-2022-05-07 11:43:52.571  INFO 19228 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@144ff141, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d008cec, org.springframework.security.web.header.HeaderWriterFilter@5011f083, org.springframework.security.web.authentication.logout.LogoutFilter@6fa6562f, com.starking.artesanato.api.JwtTokenFilter@18d505e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fbd454c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3eb20c15, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@557dd04, org.springframework.security.web.session.SessionManagementFilter@6119d210, org.springframework.security.web.access.ExceptionTranslationFilter@6c86cd89, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@468bf002]
-2022-05-07 11:43:53.425  INFO 19228 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-07 11:43:53.440  INFO 19228 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2022-05-07 11:43:53.584  INFO 19228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-05-09 21:03:14.003  INFO 9916 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-09 21:03:14.010  INFO 9916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-09 21:03:14.030  INFO 9916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-09 21:03:36.995  INFO 18720 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 18720 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
+2022-05-09 21:03:37.003  INFO 18720 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
+2022-05-09 21:03:37.145  INFO 18720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2022-05-09 21:03:37.145  INFO 18720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-09 21:03:37.146  INFO 18720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-09 21:03:40.319  INFO 18720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-09 21:03:40.606  INFO 18720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246ms. Found 2 JPA repository interfaces.
+2022-05-09 21:03:41.952  INFO 18720 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-09 21:03:43.376  INFO 18720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-09 21:03:43.418  INFO 18720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 21:03:43.420  INFO 18720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-05-09 21:03:43.671  INFO 18720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-09 21:03:43.672  INFO 18720 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6526 ms
+2022-05-09 21:03:43.797  WARN 18720 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-09 21:03:44.051  INFO 18720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-09 21:03:45.025  INFO 18720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-09 21:03:45.259  INFO 18720 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 21:03:45.587  INFO 18720 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2022-05-09 21:03:46.200  INFO 18720 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-05-09 21:03:46.656  INFO 18720 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-09 21:03:49.443  INFO 18720 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 21:03:49.468  INFO 18720 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-09 21:03:50.922  INFO 18720 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
+2022-05-09 21:03:52.488  INFO 18720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61f01e0d, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d62b971, org.springframework.security.web.header.HeaderWriterFilter@14933bb0, org.springframework.security.web.authentication.logout.LogoutFilter@75ec1db5, com.starking.artesanato.api.JwtTokenFilter@77c9b5a8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5618113d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54c5c35e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e17ee60, org.springframework.security.web.session.SessionManagementFilter@5e59a4a3, org.springframework.security.web.access.ExceptionTranslationFilter@10c2de09, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@360da974]
+2022-05-09 21:03:53.490  INFO 18720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-09 21:03:53.502  INFO 18720 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 21:03:53.641  INFO 18720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-09 21:03:53.645  INFO 18720 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 17.658 seconds (JVM running for 19.769)
+2022-05-09 21:05:01.705  INFO 18720 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-09 21:05:01.706  INFO 18720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-09 21:05:01.734  INFO 18720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+2022-05-09 21:07:49.940  INFO 12020 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Starting ArtesanatoApplication on DESKTOP-UVQ4O16 with PID 12020 (C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend\target\classes started by pedro in C:\Users\pedro\OneDrive\Documents\projetoTCC\artesanato-backend)
+2022-05-09 21:07:49.950  INFO 12020 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : No active profile set, falling back to default profiles: default
+2022-05-09 21:07:50.093  INFO 12020 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\pedro\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/pedro/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2022-05-09 21:07:50.093  INFO 12020 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-09 21:07:50.094  INFO 12020 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-09 21:07:53.092  INFO 12020 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-09 21:07:53.371  INFO 12020 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 250ms. Found 2 JPA repository interfaces.
+2022-05-09 21:07:54.479  INFO 12020 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-09 21:07:55.774  INFO 12020 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-09 21:07:55.816  INFO 12020 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-09 21:07:55.818  INFO 12020 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-05-09 21:07:56.023  INFO 12020 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-09 21:07:56.024  INFO 12020 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5930 ms
+2022-05-09 21:07:56.180  WARN 12020 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-09 21:07:56.365  INFO 12020 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-09 21:07:57.331  INFO 12020 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-09 21:07:57.492  INFO 12020 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-09 21:07:57.797  INFO 12020 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2022-05-09 21:07:58.434  INFO 12020 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-05-09 21:07:58.869  INFO 12020 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-09 21:08:01.356  INFO 12020 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-09 21:08:01.383  INFO 12020 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-09 21:08:02.760  INFO 12020 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/artesanato'
+2022-05-09 21:08:04.238  INFO 12020 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2537080, org.springframework.security.web.context.SecurityContextPersistenceFilter@4632e9fa, org.springframework.security.web.header.HeaderWriterFilter@28812f08, org.springframework.security.web.authentication.logout.LogoutFilter@6bdf7e07, com.starking.artesanato.api.JwtTokenFilter@519bed7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@142c83e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cdef591, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6944e416, org.springframework.security.web.session.SessionManagementFilter@51c0078b, org.springframework.security.web.access.ExceptionTranslationFilter@637152eb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6eb0588]
+2022-05-09 21:08:05.207  INFO 12020 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-09 21:08:05.220  INFO 12020 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-05-09 21:08:05.372  INFO 12020 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-09 21:08:05.376  INFO 12020 --- [restartedMain] c.s.artesanato.ArtesanatoApplication     : Started ArtesanatoApplication in 16.509 seconds (JVM running for 18.514)

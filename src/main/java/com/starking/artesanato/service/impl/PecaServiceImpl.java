@@ -54,7 +54,7 @@ public class PecaServiceImpl implements PecaService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Pecas> buscar(Pecas lancamentoFiltro) {
-		Example example = Example.of( lancamentoFiltro, 
+		Example<Pecas> example = Example.of( lancamentoFiltro, 
 				ExampleMatcher.matching()
 					.withIgnoreCase()
 					.withStringMatcher(StringMatcher.CONTAINING) );
